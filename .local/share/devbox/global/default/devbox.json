@@ -12,8 +12,7 @@
     "dust@latest",
     "zellij@latest",
     "nerdfonts@latest",
-    "fzf@latest",
-    "stow@latest"
+    "fzf@latest"
   ],
   "shell": {
     "init_hook": [

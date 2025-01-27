@@ -593,54 +593,6 @@
         }
       }
     },
-    "stow@latest": {
-      "last_modified": "2024-11-28T07:51:56Z",
-      "resolved": "github:NixOS/nixpkgs/226216574ada4c3ecefcbbec41f39ce4655f78ef#stow",
-      "source": "devbox-search",
-      "version": "2.4.1",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/pybvgyqidm078lzqbn6a71n13g1ihsfg-stow-2.4.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/pybvgyqidm078lzqbn6a71n13g1ihsfg-stow-2.4.1"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/3zipxk9037wqnlpcv1j1drqij5xsjas5-stow-2.4.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/3zipxk9037wqnlpcv1j1drqij5xsjas5-stow-2.4.1"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/7pa44in5l6wd7afn84prilzgcz9aafb8-stow-2.4.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/7pa44in5l6wd7afn84prilzgcz9aafb8-stow-2.4.1"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/lwc5m5v1323351fqrniypvhz675pc6z0-stow-2.4.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/lwc5m5v1323351fqrniypvhz675pc6z0-stow-2.4.1"
-        }
-      }
-    },
     "zellij@latest": {
       "last_modified": "2024-12-04T16:45:45Z",
       "resolved": "github:NixOS/nixpkgs/2f9d395f057a50f8076f633c10519035fce8d773#zellij",
