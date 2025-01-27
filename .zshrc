@@ -70,11 +70,13 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
+plugins=(colored-man-pages git extract z encode64 kubectl kubectx helm podman jfrog sdk zsh-autosuggestions myapictl)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# bartib config
+export BARTIB_FILE="/Users/juergen.czerny/timelog.bartib"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -82,11 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+   export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -103,5 +105,32 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias ..="cd .."
+alias ....="cd ../.."
+alias zreload="source ~/.zshrc"
+alias zrl=zreload
+alias tel=telnet
+alias uuid="uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]'  | pbcopy && pbpaste && echo"
+alias uuid2="uuidgen | tr -d - | tr -d '\n' | tr '[:upper:]' '[:lower:]'  | pbcopy && pbpaste && echo"
+# cli tool replacements
+alias ls='eza'
+alias lsa='eza -a'
+alias tree='eza -T -L 4'
+alias ll='eza -alh --git --icons'
+alias cat='bat'
+alias grep='rg'
+# alias find='fd'
+alias du='dust'
+
+#Fix vor CMD+left etc
+bindkey "[D" backward-word #Alt + right
+bindkey "[C" forward-word #Alt + left
+bindkey "^[a" beginning-of-line # Strg + a
+bindkey "^[e" end-of-line # Strg + e
+
+# Configure starship prompt
+eval "$(starship init zsh)"
+
 # Configure devbox
 eval "$(devbox global shellenv --init-hook)"
+
