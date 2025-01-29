@@ -213,6 +213,54 @@
         }
       }
     },
+    "fira-code-nerdfont@latest": {
+      "last_modified": "2024-11-16T04:25:12Z",
+      "resolved": "github:NixOS/nixpkgs/34a626458d686f1b58139620a8b2793e9e123bba#fira-code-nerdfont",
+      "source": "devbox-search",
+      "version": "3.2.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pw3gnk3v4i8gimx9p8bj9nn44kzpn1h0-nerdfonts-3.2.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/pw3gnk3v4i8gimx9p8bj9nn44kzpn1h0-nerdfonts-3.2.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/81x480qr7qm2p48jjcrkx70wd7j14jll-nerdfonts-3.2.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/81x480qr7qm2p48jjcrkx70wd7j14jll-nerdfonts-3.2.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/wvhsg318fv9hcz0q0b9mzl7g6jh77373-nerdfonts-3.2.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/wvhsg318fv9hcz0q0b9mzl7g6jh77373-nerdfonts-3.2.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ybr1l9xjmigggpdg0h2fvcam8pmx2591-nerdfonts-3.2.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ybr1l9xjmigggpdg0h2fvcam8pmx2591-nerdfonts-3.2.1"
+        }
+      }
+    },
     "fzf@latest": {
       "last_modified": "2024-12-17T11:43:56Z",
       "resolved": "github:NixOS/nixpkgs/4989a246d7a390a859852baddb1013f825435cee#fzf",
