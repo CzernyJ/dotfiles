@@ -13,7 +13,8 @@
     "zellij@latest",
     "nerdfonts@latest",
     "fira-code-nerdfont@latest",
-    "fzf@latest"
+    "fzf@latest",
+    "spectre-cli@latest"
   ],
   "shell": {
     "init_hook": [

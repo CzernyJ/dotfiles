@@ -593,6 +593,54 @@
         }
       }
     },
+    "spectre-cli@latest": {
+      "last_modified": "2025-01-19T08:16:51Z",
+      "resolved": "github:NixOS/nixpkgs/50165c4f7eb48ce82bd063e1fb8047a0f515f8ce#spectre-cli",
+      "source": "devbox-search",
+      "version": "2022-02-05",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2l20ih9mn7gzd768fa8spmi6vwqi64sk-spectre-cli-unstable-2022-02-05",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/2l20ih9mn7gzd768fa8spmi6vwqi64sk-spectre-cli-unstable-2022-02-05"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rpjp1i95gbyv5hxwp8xw226lvr6d09lv-spectre-cli-unstable-2022-02-05",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rpjp1i95gbyv5hxwp8xw226lvr6d09lv-spectre-cli-unstable-2022-02-05"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/lilf61p09xka3cjqkszmxl75kk47yfms-spectre-cli-unstable-2022-02-05",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/lilf61p09xka3cjqkszmxl75kk47yfms-spectre-cli-unstable-2022-02-05"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/54ymxgkw1mc5mlkhdgcza7hdk39nwyrr-spectre-cli-unstable-2022-02-05",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/54ymxgkw1mc5mlkhdgcza7hdk39nwyrr-spectre-cli-unstable-2022-02-05"
+        }
+      }
+    },
     "starship@latest": {
       "last_modified": "2024-12-03T12:40:06Z",
       "resolved": "github:NixOS/nixpkgs/566e53c2ad750c84f6d31f9ccb9d00f823165550#starship",
