@@ -133,5 +133,6 @@ eval "$(starship init zsh)"
 
 # Configure devbox
 eval "$(devbox global shellenv --init-hook)"
+export DEVBOX_NO_PROMPT=true
 
 eval "$(zellij setup --generate-auto-start zsh)"

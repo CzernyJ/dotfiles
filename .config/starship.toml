@@ -6,8 +6,8 @@ format = """\
 ╭─$username$hostname $directory( $env_var)( $kubernetes)( $nodejs)( $java)( $git_branch$git_status)
 └─$character"""
 
-# wait 700 ms for executed commands like git
-command_timeout = 700
+# wait 1000 executed commands like git
+command_timeout = 1000
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
@@ -83,9 +83,15 @@ symbol = " "
 style = "fg:#bf5700"
 
 [env_var]
-variable = "HTTPS_PROXY"
+[env_var.DEVBOX_SHELL_ENABLED]
+variable = "DEVBOX_SHELL_ENABLED"
 format = "[($symbol $env_value)]($style)"
-default = " "
-symbol = " "
+default = ""
+symbol = "󱄅"
 style = "red"
-disabled = true
+#variable = "HTTPS_PROXY"
+#format = "[($symbol $env_value)]($style)"
+#default = " "
+#symbol = " "
+#style = "red"
+#disabled = true
