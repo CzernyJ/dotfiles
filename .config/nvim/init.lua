@@ -28,5 +28,6 @@ require('lazy').setup({
 require 'plugins.neo-tree',
 require 'plugins.colortheme',
 require 'plugins.bufferline',
-require 'plugins.lualine'
+require 'plugins.lualine',
+require 'plugins.treesitter'
 })
