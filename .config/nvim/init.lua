@@ -34,4 +34,6 @@ require("lazy").setup({
     require("plugins.lsp"),
     require("plugins.autocompletion"),
     require("plugins.autoformatting"),
+    { "echasnovski/mini.nvim", version = false }, -- install mini
 })
+require("plugins.mini")                        -- configure which mini parts to use
