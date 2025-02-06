@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages git extract z encode64 kubectl kubectx helm podman jfrog sdk zsh-autosuggestions zsh-syntax-highlighting myapictl)
+plugins=(colored-man-pages git extract z encode64 direnv kubectl kubectx helm podman jfrog sdk zsh-autosuggestions zsh-syntax-highlighting myapictl)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -135,4 +135,5 @@ eval "$(starship init zsh)"
 eval "$(devbox global shellenv --init-hook)"
 export DEVBOX_NO_PROMPT=true
 
+# auto start zellij
 eval "$(zellij setup --generate-auto-start zsh)"

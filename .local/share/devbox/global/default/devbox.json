@@ -14,7 +14,8 @@
     "nerdfonts@latest",
     "fira-code-nerdfont@latest",
     "fzf@latest",
-    "spectre-cli@latest"
+    "spectre-cli@latest",
+    "direnv@latest"
   ],
   "shell": {
     "init_hook": [
