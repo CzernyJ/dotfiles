@@ -35,6 +35,7 @@ require("lazy").setup({
 	require("plugins.autocompletion"),
 	require("plugins.autoformatting"),
 	require("plugins.whichkey"),
+	require("plugins.zellij"),
 	{ "echasnovski/mini.nvim", version = false }, -- install mini
 })
 require("plugins.mini") -- configure which mini parts to use
