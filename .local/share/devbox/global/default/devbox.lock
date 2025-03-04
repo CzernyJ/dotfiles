@@ -449,6 +449,73 @@
         }
       }
     },
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "resolved": "github:NixOS/nixpkgs/d9b69c3ec2a2e2e971c534065bdd53374bd68b97?lastModified=1740396192&narHash=sha256-ATMHHrg3sG1KgpQA5x8I%2BzcYpp5Sf17FaFj%2FfN%2B8OoQ%3D"
+    },
+    "lua@latest": {
+      "last_modified": "2025-02-07T11:26:36Z",
+      "resolved": "github:NixOS/nixpkgs/d98abf5cf5914e5e4e9d57205e3af55ca90ffc1d#lua",
+      "source": "devbox-search",
+      "version": "5.2.4",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vx6k1gbxw9sv11b69vx5f95znjh3h0l7-lua-5.2.4",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/kbb0y5afx9jiimydrx0rqnwj7zp8c0wb-lua-5.2.4-doc"
+            }
+          ],
+          "store_path": "/nix/store/vx6k1gbxw9sv11b69vx5f95znjh3h0l7-lua-5.2.4"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/sg5hbhrd7cs5rza0j0ljsq0dp2xakw77-lua-5.2.4",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/lvl20sn5aa3z0h8yv9sb4q4dbpry1amy-lua-5.2.4-doc"
+            }
+          ],
+          "store_path": "/nix/store/sg5hbhrd7cs5rza0j0ljsq0dp2xakw77-lua-5.2.4"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3c91cxfl0nwhjqpd7gadb7mj33fzhwkv-lua-5.2.4",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/hgqspi5x0pzgmd8fzwhvcbba05f57hpl-lua-5.2.4-doc"
+            }
+          ],
+          "store_path": "/nix/store/3c91cxfl0nwhjqpd7gadb7mj33fzhwkv-lua-5.2.4"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/x7hwkanrnpldwawl1whvlyhg6762kzid-lua-5.2.4",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/c50azph28b1zk8af741qfcivw28nlcas-lua-5.2.4-doc"
+            }
+          ],
+          "store_path": "/nix/store/x7hwkanrnpldwawl1whvlyhg6762kzid-lua-5.2.4"
+        }
+      }
+    },
     "neovim@latest": {
       "last_modified": "2024-12-03T12:40:06Z",
       "resolved": "github:NixOS/nixpkgs/566e53c2ad750c84f6d31f9ccb9d00f823165550#neovim",
