@@ -16,7 +16,8 @@
     "fzf@latest",
     "spectre-cli@latest",
     "direnv@latest",
-    "lua@latest"
+    "lua@latest",
+    "localsend@latest"
   ],
   "shell": {
     "init_hook": [
