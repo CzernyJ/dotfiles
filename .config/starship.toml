@@ -3,7 +3,7 @@ add_newline = false
 
 # Use custom format
 format = """\
-╭─$username$hostname $directory( $env_var)( $kubernetes)( $nodejs)( $java)( $git_branch$git_status)
+╭─$username$hostname $directory( $nix_shell)( $kubernetes)( $nodejs)( $java)( $git_branch$git_status)
 └─$character"""
 
 # wait 1000 executed commands like git
@@ -81,6 +81,9 @@ style = "bold green"
 format = "[$symbol$version]($style)"
 symbol = " "
 style = "fg:#bf5700"
+
+[nix_shell]
+disabled = false
 
 [env_var]
 [env_var.DEVBOX_SHELL_ENABLED]
