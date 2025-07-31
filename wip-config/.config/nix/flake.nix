@@ -37,6 +37,10 @@
 	  pkgs.bat
 	  pkgs.eza
 	  pkgs.ripgrep
+                        pkgs.git
+                        pkgs.podman
+                        pkgs.podman-desktop
+                        pkgs.podman-compose
         ];
 
       homebrew = {
@@ -48,6 +52,8 @@
 	  "breaktimer"
 	  "flycut"
 	  "nextcloud"
+      "vivaldi"
+      "librewolf"
 	];
 	onActivation.cleanup = "zap";
 	onActivation.autoUpdate = true;
@@ -85,6 +91,20 @@
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
 
+      programs = {
+        zsh = {
+          enable = true;
+
+                        #syntaxHighlighting.enable = true;
+                        #enableAutosuggestions = true;
+                        #enableCompletion = true;
+                #          completionInit = ''
+            # make case insensitive
+                #autoload -Uz compinit && compinit
+                        #zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+                        #'';
+        };
+      };
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
