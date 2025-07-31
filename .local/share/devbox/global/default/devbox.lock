@@ -868,6 +868,54 @@
         }
       }
     },
+    "wget@latest": {
+      "last_modified": "2025-07-13T22:45:35Z",
+      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#wget",
+      "source": "devbox-search",
+      "version": "1.25.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/n56qyd9px0gmq7chcvaifc0gcjpzkk27-wget-1.25.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/n56qyd9px0gmq7chcvaifc0gcjpzkk27-wget-1.25.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/wkw69nqfaz4lgcsxm97qyzzfclwhlzc2-wget-1.25.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/wkw69nqfaz4lgcsxm97qyzzfclwhlzc2-wget-1.25.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rf5daj9zdqg08jli53dv4vsgw3fmysgc-wget-1.25.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rf5daj9zdqg08jli53dv4vsgw3fmysgc-wget-1.25.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/66k8i1h42c4wggszk7y2pzwsywvm4q2f-wget-1.25.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/66k8i1h42c4wggszk7y2pzwsywvm4q2f-wget-1.25.0"
+        }
+      }
+    },
     "zellij@latest": {
       "last_modified": "2025-03-17T10:12:08Z",
       "resolved": "github:NixOS/nixpkgs/096478927c360bc18ea80c8274f013709cf7bdcd#zellij",

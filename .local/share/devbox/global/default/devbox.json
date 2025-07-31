@@ -17,7 +17,8 @@
     "spectre-cli@latest",
     "direnv@latest",
     "lua@latest",
-    "localsend@latest"
+    "localsend@latest",
+    "wget@latest"
   ],
   "shell": {
     "init_hook": [
