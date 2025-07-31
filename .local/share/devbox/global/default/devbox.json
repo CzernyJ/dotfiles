@@ -18,6 +18,9 @@
     "direnv@latest",
     "lua@latest",
     "localsend@latest"
+    "podman@latest",
+    "podman-compose@latest",
+    "ollama@latest"
   ],
   "shell": {
     "init_hook": [

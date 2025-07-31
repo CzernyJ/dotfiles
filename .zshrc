@@ -75,6 +75,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# brew config
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
 # bartib config
 export BARTIB_FILE="/Users/juergen.czerny/timelog.bartib"
 
