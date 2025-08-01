@@ -17,8 +17,8 @@
     "spectre-cli@latest",
     "direnv@latest",
     "lua@latest",
-    "wget@latest"
-    "localsend@latest"
+    "wget@latest",
+    "localsend@latest",
     "podman@latest",
     "podman-compose@latest",
     "ollama@latest"
