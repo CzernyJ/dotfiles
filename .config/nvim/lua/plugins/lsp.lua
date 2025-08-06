@@ -5,7 +5,9 @@ return { -- LSP Configuration & Plugins
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"neovim/nvim-lspconfig",
 		"saghen/blink.cmp",
+		{ "antosha417/nvim-lsp-file-operations", config = true },
 
 		-- Useful status updates for LSP.
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -48,6 +50,8 @@ return { -- LSP Configuration & Plugins
 				--  Useful when your language has ways of declaring types without an actual implementation.
 				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 
+				map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype definitions")
+
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
@@ -67,6 +71,7 @@ return { -- LSP Configuration & Plugins
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
+				-- can also be used in visual mode see https://github.com/Sin-cy/dotfiles/blob/1849a444369285aaacaa6090172ee5aaf8c41fcb/nvim/.config/nvim/lua/sethy/plugins/lsp/lspconfig.lua#L36
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
 				-- Opens a popup that displays documentation about the word under your cursor
@@ -103,141 +108,167 @@ return { -- LSP Configuration & Plugins
 			end,
 		})
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities =
-			vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(capabilities))
+		-- Define sign icons for each severity
+		local signs = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		}
 
+		-- Set the diagnostic config with all icons
+		vim.diagnostic.config({
+			signs = {
+				text = signs, -- Enable signs in the gutter
+			},
+			virtual_text = true, -- Specify Enable virtual text for diagnostics
+			underline = true, -- Specify Underline diagnostics
+			update_in_insert = false, -- Keep diagnostics active in insert mode
+		})
+
+		local lspconfig = require("lspconfig")
+
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+		-- Configure lua_ls
+		-- lspconfig.lua_ls.setup({
+		--     capabilities = capabilities,
+		--     settings = {
+		--         Lua = {
+		--             diagnostics = {
+		--                 globals = { "vim" },
+		--             },
+		--             completion = {
+		--                 callSnippet = "Replace",
+		--             },
+		--             workspace = {
+		--                 library = {
+		--                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+		--                     [vim.fn.stdpath("config") .. "/lua"] = true,
+		--                 },
+		--             },
+		--         },
+		--     },
+		-- })
+		--
+		-- -- Configure tsserver (TypeScript and JavaScript)
+		-- lspconfig.ts_ls.setup({
+		--     capabilities = capabilities,
+		--     root_dir = function(fname)
+		--         local util = lspconfig.util
+		--         return not util.root_pattern('deno.json', 'deno.jsonc')(fname)
+		--             and util.root_pattern('tsconfig.json', 'package.json', 'jsconfig.json', '.git')(fname)
+		--     end,
+		--     single_file_support = false,
+		--     on_attach = function(client, bufnr)
+		--         -- Disable formatting if you're using a separate formatter like Prettier
+		--         client.server_capabilities.documentFormattingProvider = false
+		--     end,
+		--     init_options = {
+		--         preferences = {
+		--             includeCompletionsWithSnippetText = true,
+		--             includeCompletionsForImportStatements = true,
+		--         },
+		--     },
+		-- })
+
+		-- Add other LSP servers as needed, e.g., gopls, eslint, html, etc.
+		-- lspconfig.gopls.setup({ capabilities = capabilities })
+		-- lspconfig.html.setup({ capabilities = capabilities })
+		-- lspconfig.cssls.setup({ capabilities = capabilities })
+
+		-- TODO:
 		-- Enable the following language servers
 		local servers = {
 			-- global servers
-			html = { filetypes = { "html", "twig", "hbs" } },
+			html = {
+				capabilities = capabilities,
+				filetypes = { "html", "twig", "hbs" },
+			},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes { ...},
-				-- capabilities = {},
+				capabilities = capabilities,
 				settings = {
 					Lua = {
-						runtime = { version = "LuaJIT" },
-						workspace = {
-							checkThirdParty = false,
-							-- Tells lua_ls where to find all the Lua files that you have loaded
-							-- for your neovim configuration.
-							library = {
-								"${3rd}/luv/library",
-								unpack(vim.api.nvim_get_runtime_file("", true)),
-							},
-							-- If lua_ls is really slow on your computer, you can try this instead:
-							-- library = { vim.env.VIMRUNTIME },
+						diagnostics = {
+							globals = { "vim" },
 						},
 						completion = {
 							callSnippet = "Replace",
 						},
-						telemetry = { enable = false },
-						diagnostics = { disable = { "missing-fields" } },
-					},
-				},
-			},
-			dockerls = {},
-			docker_compose_language_service = {},
-			cssls = {},
-			jsonls = {},
-			yamlls = {},
-			bashls = {},
-			-- devbox local servers
-			pylsp = {
-				autostart = false,
-				settings = {
-					pylsp = {
-						plugins = {
-							pyflakes = { enabled = false },
-							pycodestyle = { enabled = false },
-							autopep8 = { enabled = false },
-							yapf = { enabled = false },
-							mccabe = { enabled = false },
-							pylsp_mypy = { enabled = false },
-							pylsp_black = { enabled = false },
-							pylsp_isort = { enabled = false },
+						workspace = {
+							library = {
+								[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+								[vim.fn.stdpath("config") .. "/lua"] = true,
+							},
 						},
 					},
 				},
 			},
-			-- basedpyright = {
-			--   -- Config options: https://github.com/DetachHead/basedpyright/blob/main/docs/settings.md
-			--   settings = {
-			--     basedpyright = {
-			--       disableOrganizeImports = true, -- Using Ruff's import organizer
-			--       disableLanguageServices = false,
-			--       analysis = {
-			--         ignore = { '*' },                 -- Ignore all files for analysis to exclusively use Ruff for linting
-			--         typeCheckingMode = 'off',
-			--         diagnosticMode = 'openFilesOnly', -- Only analyze open files
-			--         useLibraryCodeForTypes = true,
-			--         autoImportCompletions = true,     -- whether pyright offers auto-import completions
-			--       },
-			--     },
-			--   },
-			-- },
-			ruff = {
-				-- Notes on code actions: https://github.com/astral-sh/ruff-lsp/issues/119#issuecomment-1595628355
-				-- Get isort like behavior: https://github.com/astral-sh/ruff/issues/8926#issuecomment-1834048218
-				autostart = false,
-				commands = {
-					RuffAutofix = {
-						function()
-							vim.lsp.buf.execute_command({
-								command = "ruff.applyAutofix",
-								arguments = {
-									{ uri = vim.uri_from_bufnr(0) },
-								},
-							})
-						end,
-						description = "Ruff: Fix all auto-fixable problems",
-					},
-					RuffOrganizeImports = {
-						function()
-							vim.lsp.buf.execute_command({
-								command = "ruff.applyOrganizeImports",
-								arguments = {
-									{ uri = vim.uri_from_bufnr(0) },
-								},
-							})
-						end,
-						description = "Ruff: Format imports",
-					},
-				},
+			dockerls = {
+				capabilities = capabilities,
 			},
-			rust_analyzer = {
-				autostart = false,
-				["rust-analyzer"] = {
-					cargo = {
-						features = "all",
-					},
-					checkOnSave = true,
-					check = {
-						command = "clippy",
-					},
-				},
+			docker_compose_language_service = {
+				capabilities = capabilities,
+			},
+			cssls = {
+				capabilities = capabilities,
+			},
+			jsonls = {
+				capabilities = capabilities,
+			},
+			yamlls = {
+				capabilities = capabilities,
+			},
+			bashls = {
+				capabilities = capabilities,
 			},
 			gopls = {
 				autostart = false,
+				capabilities = capabilities,
 			},
 			sqlls = {
 				autostart = false,
+				capabilities = capabilities,
 			},
 			terraformls = {
 				autostart = false,
+				capabilities = capabilities,
 			},
 			graphql = {
 				autostart = false,
+				capabilities = capabilities,
 			},
 			ltex = {
 				autostart = false,
+				capabilities = capabilities,
 			},
 			texlab = {
 				autostart = false,
+				capabilities = capabilities,
 			},
 		}
 
+		local lsps_to_install = {}
+		for server, config in pairs(servers) do
+			lsps_to_install[#lsps_to_install + 1] = server
+		end
+
+		--[[
+                -- import mason and mason_lspconfig
+        local mason = require("mason")
+        local mason_lspconfig = require("mason-lspconfig")
+        local mason_tool_installer = require("mason-tool-installer")
+
+        -- NOTE: Moved these local imports below back to lspconfig.lua due to mason depracated handlers
+
+        -- local lspconfig = require("lspconfig")
+        -- local cmp_nvim_lsp = require("cmp_nvim_lsp")             -- import cmp-nvim-lsp plugin
+        -- local capabilities = cmp_nvim_lsp.default_capabilities() -- used to enable autocompletion (assign to every lsp server config)
+
+
+        --]]
 		-- Ensure the servers and tools above are installed
 		require("mason").setup({
 			ui = {
@@ -251,13 +282,55 @@ return { -- LSP Configuration & Plugins
 
 		-- You can add other tools here that you want Mason to install
 		-- for you, so that they are available from within Neovim.
+		--[[
+
+        mason_tool_installer.setup({
+            ensure_installed = {
+                "prettier", -- prettier formatter
+                "stylua",   -- lua formatter
+                "isort",    -- python formatter
+                "pylint",
+                "clangd",
+                "denols",
+                -- { 'eslint_d', version = '13.1.2' },
+            },
+
+            -- NOTE: mason BREAKING Change! Removed setup_handlers
+            -- moved lsp configuration settings back into lspconfig.lua file
+        })
+        --]]
+
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format lua code
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+		--[[
+
+        mason_lspconfig.setup({
+            automatic_enable = false,
+            -- servers for mason to install
+            ensure_installed = {
+                "lua_ls",
+                -- "ts_ls", currently using a ts plugin
+                "html",
+                "cssls",
+                "tailwindcss",
+                "gopls",
+                "emmet_ls",
+                "emmet_language_server",
+                -- "eslint",
+                "marksman",
+            },
+
+        })
+        --]]
+
 		require("mason-lspconfig").setup({
+			automatic_enable = false,
+			ensure_installed = lsps_to_install,
+			--[[
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
@@ -268,6 +341,7 @@ return { -- LSP Configuration & Plugins
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
+            --]]
 		})
 	end,
 }
