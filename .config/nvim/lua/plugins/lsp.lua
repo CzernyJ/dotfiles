@@ -28,6 +28,7 @@ return { -- LSP Configuration & Plugins
 			},
 		},
 	},
+
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
@@ -181,10 +182,11 @@ return { -- LSP Configuration & Plugins
 		-- Enable the following language servers
 		local servers = {
 			-- global servers
-			html = {
+			--[[ html = {
 				capabilities = capabilities,
 				filetypes = { "html", "twig", "hbs" },
 			},
+            --]]
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes { ...},
@@ -206,6 +208,7 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+			--[[
 			dockerls = {
 				capabilities = capabilities,
 			},
@@ -248,6 +251,7 @@ return { -- LSP Configuration & Plugins
 				autostart = false,
 				capabilities = capabilities,
 			},
+            --]]
 		}
 
 		local lsps_to_install = {}
@@ -300,7 +304,7 @@ return { -- LSP Configuration & Plugins
         })
         --]]
 
-		local ensure_installed = vim.tbl_keys(servers or {})
+		local ensure_installed = vim.tbl_keys({})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format lua code
 		})
@@ -345,3 +349,4 @@ return { -- LSP Configuration & Plugins
 		})
 	end,
 }
+--]]

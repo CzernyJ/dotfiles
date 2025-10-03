@@ -1,4 +1,5 @@
 return {
+	--[[
 	"actionshrimp/direnv.nvim",
 	opts = {
 		async = true,
@@ -7,4 +8,5 @@ return {
 			vim.cmd("LspStart")
 		end,
 	},
+    --]]
 }

@@ -136,6 +136,10 @@ bindkey "^[e" end-of-line # Strg + e
 # Configure starship prompt
 eval "$(starship init zsh)"
 
+# Configure carapace - auto-completion
+export CARAPACE_BRIDGES='zsh,bash,inshellisense'
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+
 # Configure devbox
 eval "$(devbox global shellenv --init-hook)"
 export DEVBOX_NO_PROMPT=true

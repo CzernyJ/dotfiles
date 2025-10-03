@@ -22,7 +22,9 @@
     "podman@latest",
     "podman-compose@latest",
     "ollama@latest",
-    "zoxide@latest"
+    "zoxide@latest",
+    "bartib@latest",
+    "carapace@latest"
   ],
   "shell": {
     "init_hook": [
