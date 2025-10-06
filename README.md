@@ -6,3 +6,10 @@
 - Install stow either using homebrew or linux package manager
 - Clone this directory `git clone --recurse-submodules ...git` (with `-j8` parameter it will do stuff in parallel)
 
+## Initial steps
+
+### bat
+
+- run `bat cache --build`
+
+
