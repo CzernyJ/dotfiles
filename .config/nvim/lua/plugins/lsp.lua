@@ -306,7 +306,7 @@ return { -- LSP Configuration & Plugins
 
 		local ensure_installed = vim.tbl_keys({})
 		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format lua code
+			--"stylua", -- Used to format lua code
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -331,10 +331,10 @@ return { -- LSP Configuration & Plugins
         })
         --]]
 
-		require("mason-lspconfig").setup({
+		--[[
+        require("mason-lspconfig").setup({
 			automatic_enable = false,
 			ensure_installed = lsps_to_install,
-			--[[
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
@@ -345,8 +345,7 @@ return { -- LSP Configuration & Plugins
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
-            --]]
 		})
+        --]]
 	end,
 }
---]]

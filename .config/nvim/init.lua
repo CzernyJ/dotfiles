@@ -38,6 +38,11 @@ require("lazy").setup({
 	require("plugins.whichkey"),
 	require("plugins.zellij"),
 	{ "echasnovski/mini.nvim", version = false }, -- install mini
-	require("plugins.rest"),
+	--[[require("plugins.rest"),
+	{
+		rocks = { enable = false },
+	},
+    ]]
+	--
 })
 require("plugins.mini") -- configure which mini parts to use
